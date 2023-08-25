@@ -7,6 +7,7 @@ class BookModel(models.Model):
     """Модель книги"""
     book = models.CharField('Книга', max_length=100)
     author = models.CharField('Автор', max_length=100)
+    image = models.ImageField(upload_to='image/', blank=True)
     price = models.PositiveIntegerField('Цена')
 
     def __str__(self):
