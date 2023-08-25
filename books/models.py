@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.db import models
 from django.urls import reverse
 
@@ -13,3 +14,13 @@ class BookModel(models.Model):
 
     def get_absolute_url(self):
         return reverse('book_detail', args=[str(self.id)])
+
+
+class ReviewModel(models.Model):
+    """Отзывы"""
+    book = models.ForeignKey(BookModel, verbose_name='Книга', on_delete=models.CASCADE)
+    user_name = models.ForeignKey(get_user_model(), verbose_name='Пользователь', on_delete=models.CASCADE)
+    review = models.CharField('Отзыв', max_length=300)
+
+    def __str__(self):
+        return f'Отзыв на: {str(self.book)}'
