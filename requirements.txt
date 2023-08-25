@@ -3,3 +3,5 @@ psycopg2==2.9.7
 django-crispy-forms
 crispy-bootstrap5
 django-allauth==0.55.0
+environs==9.5.0
+dj-database-url==2.1.0
