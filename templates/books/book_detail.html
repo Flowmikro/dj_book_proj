@@ -2,12 +2,15 @@
 {% block title %}{{ book_detail.title }}{% endblock title %}
 {% block content %}
 <div class="book-detail">
+    {% if book_detail.image %}
+        <img class="bookcover" src="{{ book_detail.image.url }}" alt="">
+    {% endif %}
     <h2><a href="">{{ book_detail.book }}</a></h2>
     <p>Автор: {{ book_detail.author }}</p>
     <p>Цена: {{ book_detail.price }}</p>
 </div>
 <div>
-    <h3>Reviews</h3>
+    <h3>Отзывы</h3>
     <ul>
         {% for review in book_detail.reviewmodel_set.all %}
             <li>{{ review.review }} ({{ review.user_name }})</li>
