@@ -50,9 +50,18 @@ LOGOUT_REDIRECT_URL = 'home'
 
 # django-allauth config
 ACCOUNT_LOGOUT_REDIRECT = 'home'
+
 SITE_ID = 1
+
 ACCOUNT_SESSION_REMEMBER = True
 ACCOUNT_SIGNUP_PASSWORD_ENTER_TWICE = False  # убирает поле "повторить пароль"
+
+ACCOUNT_USERNAME_REQUIRED = False  # необязательно указывать имя
+ACCOUNT_AUTHENTICATION_METHOD = 'email'  # для аутентификации пользователей используется email
+ACCOUNT_EMAIL_REQUIRED = True  # для регистрации пользователей обязательно указывать email
+ACCOUNT_UNIQUE_EMAIL = True  # email должен быть уникальным для каждого пользователя
+
+
 AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
