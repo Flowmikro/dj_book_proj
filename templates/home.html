@@ -1,13 +1,13 @@
 {% extends '_base.html' %}
+{% load static %}
 
-{% block title %}Главная{% endblock title %}
+{% block title %}Главная{% endblock %}
 
 {% block content %}
-
 <h1>Главная</h1>
-{% if user.is_authenticated %}
-    Привет, {{ user.username }}
-{% else %}
-    <p>Вы не вошли</p>
-{% endif %}
-{% endblock %}
+<form class="form-inline mt-2 mt-md-0" action="{% url 'search' %}"
+      method="get">
+    <input name="q" class="form-control mr-sm-2" type="text"
+           placeholder="Найти" aria-label="Search">
+</form>
+{% endblock content %}
